@@ -10,4 +10,7 @@ import UIKit
 
 class FavoriteScreenViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

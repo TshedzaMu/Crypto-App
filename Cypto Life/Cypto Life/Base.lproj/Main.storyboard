@@ -41,10 +41,29 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="7bh-Ag-vgl"/>
+                    <connections>
+                        <segue destination="ii2-jU-MpI" kind="show" id="86B-aI-0PX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="298.47328244274809" y="-930.28169014084517"/>
+        </scene>
+        <!--Coin Details View Controller-->
+        <scene sceneID="l3s-nS-3hk">
+            <objects>
+                <viewController id="ii2-jU-MpI" customClass="CoinDetailsViewController" customModule="Cypto_Life" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yfZ-m3-dLk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0Cd-68-s3o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="evB-m1-i5g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q71-Vr-aE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="-120"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J6V-7o-5XR">
@@ -134,6 +153,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="uY2-eK-YNR" kind="relationship" relationship="rootViewController" id="jlR-AJ-8CV"/>
+                        <segue destination="ii2-jU-MpI" kind="show" id="vQy-kQ-Cir"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWm-cc-zs2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -141,6 +161,9 @@
             <point key="canvasLocation" x="1991.6030534351144" y="-930.28169014084517"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vQy-kQ-Cir"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

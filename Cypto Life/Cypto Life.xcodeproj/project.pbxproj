@@ -23,6 +23,8 @@
 		31848AE22D69E15E000D4288 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE12D69E15E000D4288 /* HomeScreenViewModel.swift */; };
 		31848AE42D69E180000D4288 /* FavoriteScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE32D69E180000D4288 /* FavoriteScreenViewController.swift */; };
 		31848AE62D69E197000D4288 /* FavoriteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE52D69E197000D4288 /* FavoriteScreenViewModel.swift */; };
+		31848AE92D69E6F9000D4288 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE82D69E6F9000D4288 /* CoinDetailsViewController.swift */; };
+		31848AEB2D69E7A0000D4288 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		31848AE12D69E15E000D4288 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		31848AE32D69E180000D4288 /* FavoriteScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewController.swift; sourceTree = "<group>"; };
 		31848AE52D69E197000D4288 /* FavoriteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewModel.swift; sourceTree = "<group>"; };
+		31848AE82D69E6F9000D4288 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
+		31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +117,9 @@
 		31848AA42D68DE40000D4288 /* Cypto Life */ = {
 			isa = PBXGroup;
 			children = (
-				31848ADE2D69E0F2000D4288 /* Favorites */,
-				31848ADD2D69E0EB000D4288 /* Home */,
+				31848AE72D69E65C000D4288 /* Coin Detail Screen */,
+				31848ADE2D69E0F2000D4288 /* Favorites Screen */,
+				31848ADD2D69E0EB000D4288 /* Home Screen */,
 				31848ADA2D69DD27000D4288 /* Model */,
 				31848AD52D69DC44000D4288 /* Service */,
 				31848AA52D68DE40000D4288 /* AppDelegate.swift */,
@@ -162,22 +167,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		31848ADD2D69E0EB000D4288 /* Home */ = {
+		31848ADD2D69E0EB000D4288 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
 				31848ADF2D69E122000D4288 /* HomeScreenViewController.swift */,
 				31848AE12D69E15E000D4288 /* HomeScreenViewModel.swift */,
 			);
-			path = Home;
+			path = "Home Screen";
 			sourceTree = "<group>";
 		};
-		31848ADE2D69E0F2000D4288 /* Favorites */ = {
+		31848ADE2D69E0F2000D4288 /* Favorites Screen */ = {
 			isa = PBXGroup;
 			children = (
 				31848AE32D69E180000D4288 /* FavoriteScreenViewController.swift */,
 				31848AE52D69E197000D4288 /* FavoriteScreenViewModel.swift */,
 			);
-			path = Favorites;
+			path = "Favorites Screen";
+			sourceTree = "<group>";
+		};
+		31848AE72D69E65C000D4288 /* Coin Detail Screen */ = {
+			isa = PBXGroup;
+			children = (
+				31848AE82D69E6F9000D4288 /* CoinDetailsViewController.swift */,
+				31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */,
+			);
+			path = "Coin Detail Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +329,8 @@
 				31848AE22D69E15E000D4288 /* HomeScreenViewModel.swift in Sources */,
 				31848AD72D69DC66000D4288 /* Service.swift in Sources */,
 				31848ADC2D69DD58000D4288 /* CyptoResponse.swift in Sources */,
+				31848AEB2D69E7A0000D4288 /* CoinDetailsViewModel.swift in Sources */,
+				31848AE92D69E6F9000D4288 /* CoinDetailsViewController.swift in Sources */,
 				31848AD92D69DC9E000D4288 /* Interactor.swift in Sources */,
 				31848AA62D68DE40000D4288 /* AppDelegate.swift in Sources */,
 				31848AA82D68DE40000D4288 /* SceneDelegate.swift in Sources */,
