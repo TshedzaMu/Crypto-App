@@ -16,6 +16,9 @@
 		31848ABD2D68DE42000D4288 /* Cypto_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848ABC2D68DE42000D4288 /* Cypto_LifeTests.swift */; };
 		31848AC72D68DE42000D4288 /* Cypto_LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AC62D68DE42000D4288 /* Cypto_LifeUITests.swift */; };
 		31848AC92D68DE42000D4288 /* Cypto_LifeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AC82D68DE42000D4288 /* Cypto_LifeUITestsLaunchTests.swift */; };
+		31848AD72D69DC66000D4288 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AD62D69DC66000D4288 /* Service.swift */; };
+		31848AD92D69DC9E000D4288 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AD82D69DC9E000D4288 /* Interactor.swift */; };
+		31848ADC2D69DD58000D4288 /* CyptoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848ADB2D69DD58000D4288 /* CyptoResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		31848AC22D68DE42000D4288 /* Cypto LifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cypto LifeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31848AC62D68DE42000D4288 /* Cypto_LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cypto_LifeUITests.swift; sourceTree = "<group>"; };
 		31848AC82D68DE42000D4288 /* Cypto_LifeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cypto_LifeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		31848AD62D69DC66000D4288 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		31848AD82D69DC9E000D4288 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		31848ADB2D69DD58000D4288 /* CyptoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyptoResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 		31848AA42D68DE40000D4288 /* Cypto Life */ = {
 			isa = PBXGroup;
 			children = (
+				31848ADA2D69DD27000D4288 /* Model */,
+				31848AD52D69DC44000D4288 /* Service */,
 				31848AA52D68DE40000D4288 /* AppDelegate.swift */,
 				31848AA72D68DE40000D4288 /* SceneDelegate.swift */,
 				31848AA92D68DE40000D4288 /* ViewController.swift */,
@@ -125,6 +133,23 @@
 				31848AC82D68DE42000D4288 /* Cypto_LifeUITestsLaunchTests.swift */,
 			);
 			path = "Cypto LifeUITests";
+			sourceTree = "<group>";
+		};
+		31848AD52D69DC44000D4288 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				31848AD62D69DC66000D4288 /* Service.swift */,
+				31848AD82D69DC9E000D4288 /* Interactor.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		31848ADA2D69DD27000D4288 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31848ADB2D69DD58000D4288 /* CyptoResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31848AAA2D68DE40000D4288 /* ViewController.swift in Sources */,
+				31848AD72D69DC66000D4288 /* Service.swift in Sources */,
+				31848ADC2D69DD58000D4288 /* CyptoResponse.swift in Sources */,
+				31848AD92D69DC9E000D4288 /* Interactor.swift in Sources */,
 				31848AA62D68DE40000D4288 /* AppDelegate.swift in Sources */,
 				31848AA82D68DE40000D4288 /* SceneDelegate.swift in Sources */,
 			);
