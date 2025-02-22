@@ -10,6 +10,7 @@ import Foundation
 class HomeScreenViewModel {
     var allCoins: [CryptoCoin] = []
     var displayedCoins: [CryptoCoin] = [] 
+    var selectedCoin: CryptoCoin?
     private let pageSize = 20
     private var currentPage = 0
 

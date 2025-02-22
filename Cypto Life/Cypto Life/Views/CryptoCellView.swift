@@ -14,29 +14,35 @@ struct CryptoCellView: View {
         HStack {
             AsyncImage(url: URL(string: coin.iconUrl)) { image in
                 image.resizable()
+                    .scaledToFill()
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 40, height: 40)
+            .frame(width: 50, height: 50)
             .clipShape(Circle())
-            .padding(.trailing, 10)
+            .padding(.trailing, 15)
             
             VStack(alignment: .leading) {
                 Text(coin.name)
-                    .font(.headline)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                
                 Text("$\(coin.price)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .font(.body)
+                    .foregroundColor(.black)
             }
             Spacer()
             
             Text("\(coin.change)%")
+                .font(.body)
+                .fontWeight(.semibold)
                 .foregroundColor(Double(coin.change) ?? 0 >= 0 ? .green : .red)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                .padding(.horizontal, 15)
+                .padding(.vertical, 8)
+                .background(RoundedRectangle(cornerRadius: 20).fill(Color.gray.opacity(0.2)))
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 15).fill(Color.white).shadow(radius: 3))
+        .background(RoundedRectangle(cornerRadius: 20).fill(Color.white).shadow(radius: 4))
     }
 }

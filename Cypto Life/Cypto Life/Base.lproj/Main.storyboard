@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Coins-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="Cypto_Life" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,9 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o2N-T9-NjH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o2N-T9-NjH">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CRYPTO_CELL" id="MA2-aM-LS6">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -40,10 +41,10 @@
                             <constraint firstItem="o2N-T9-NjH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qt5-Go-UCB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="7bh-Ag-vgl"/>
+                    <navigationItem key="navigationItem" title="Coins" id="7bh-Ag-vgl"/>
                     <connections>
                         <outlet property="cryptoListTableView" destination="o2N-T9-NjH" id="XHP-Q0-ZB1"/>
-                        <segue destination="ii2-jU-MpI" kind="show" id="86B-aI-0PX"/>
+                        <segue destination="ii2-jU-MpI" kind="show" identifier="coinInformationSegue" id="86B-aI-0PX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,7 +56,7 @@
             <objects>
                 <viewController id="ii2-jU-MpI" customClass="CoinDetailsViewController" customModule="Cypto_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfZ-m3-dLk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0Cd-68-s3o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,6 +73,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rl9-Ta-Ui6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mhd-4G-hol">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -157,7 +159,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="uY2-eK-YNR" kind="relationship" relationship="rootViewController" id="jlR-AJ-8CV"/>
-                        <segue destination="ii2-jU-MpI" kind="show" id="vQy-kQ-Cir"/>
+                        <segue destination="ii2-jU-MpI" kind="show" identifier="favoriteCoinInformationSegue" id="vQy-kQ-Cir"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWm-cc-zs2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -166,7 +168,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="86B-aI-0PX"/>
+        <segue reference="vQy-kQ-Cir"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

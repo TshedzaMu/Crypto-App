@@ -9,4 +9,6 @@ import Foundation
 
 struct CoinDetailsViewModel {
     
+    var selectedCoin: CryptoCoin?
+    
 }
