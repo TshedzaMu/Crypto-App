@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CRYPO_CELL" id="MA2-aM-LS6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CRYPTO_CELL" id="MA2-aM-LS6">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MA2-aM-LS6" id="bAh-k5-vUD">
@@ -42,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="7bh-Ag-vgl"/>
                     <connections>
+                        <outlet property="cryptoListTableView" destination="o2N-T9-NjH" id="XHP-Q0-ZB1"/>
                         <segue destination="ii2-jU-MpI" kind="show" id="86B-aI-0PX"/>
                     </connections>
                 </viewController>
@@ -54,7 +55,7 @@
             <objects>
                 <viewController id="ii2-jU-MpI" customClass="CoinDetailsViewController" customModule="Cypto_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfZ-m3-dLk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0Cd-68-s3o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -116,6 +117,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourites" id="oX7-Hn-zrM"/>
+                    <connections>
+                        <outlet property="favoriteCryptoListTableView" destination="qLJ-qn-Af8" id="aOg-hw-24I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8H-Eq-AVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +166,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vQy-kQ-Cir"/>
+        <segue reference="86B-aI-0PX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

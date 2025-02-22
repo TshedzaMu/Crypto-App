@@ -8,31 +8,40 @@
 import Foundation
 
 class HomeScreenViewModel {
+    var allCoins: [CryptoCoin] = []
+    var displayedCoins: [CryptoCoin] = [] 
+    private let pageSize = 20
+    private var currentPage = 0
 
-    var coinList: [CryptoCoin]?
-    var coinTotal: Int?
- 
     lazy var interactor: InteractorProtocol = Interactor(service: Service())
     
     var onCoinsFetched: (() -> Void)?
     var onFetchFailed: ((String) -> Void)?
-    
+
     var coinListTotal: Int {
-        return coinTotal ?? Int()
+        return displayedCoins.count
     }
-    
+
     func getCoinList() {
         interactor.getCoins { [weak self] result in
             switch result {
             case .success(let response):
-                self?.coinList = response.data.coins
-                self?.coinTotal = response.data.stats.totalCoins
-                self?.onCoinsFetched?()
+                self?.allCoins = response.data.coins
+                self?.loadMoreCoins()
             case .failure(let error):
-                let errorMessage = error.localizedDescription
-                print("Failed to fetch coins, error: \(errorMessage)")
-                self?.onFetchFailed?(errorMessage)
+                self?.onFetchFailed?(error.localizedDescription)
             }
+        }
+    }
+
+    func loadMoreCoins() {
+        let startIndex = currentPage * pageSize
+        let endIndex = min(startIndex + pageSize, allCoins.count)
+
+        if startIndex < allCoins.count {
+            displayedCoins.append(contentsOf: allCoins[startIndex..<endIndex])
+            currentPage += 1
+            onCoinsFetched?()
         }
     }
 }

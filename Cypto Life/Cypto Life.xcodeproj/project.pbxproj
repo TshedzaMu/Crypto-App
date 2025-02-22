@@ -25,6 +25,8 @@
 		31848AE62D69E197000D4288 /* FavoriteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE52D69E197000D4288 /* FavoriteScreenViewModel.swift */; };
 		31848AE92D69E6F9000D4288 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AE82D69E6F9000D4288 /* CoinDetailsViewController.swift */; };
 		31848AEB2D69E7A0000D4288 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */; };
+		31848AEE2D6A0D2F000D4288 /* CryptoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AED2D6A0D2F000D4288 /* CryptoCellView.swift */; };
+		31848AF12D6A114A000D4288 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AF02D6A114A000D4288 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		31848AE52D69E197000D4288 /* FavoriteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewModel.swift; sourceTree = "<group>"; };
 		31848AE82D69E6F9000D4288 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
+		31848AED2D6A0D2F000D4288 /* CryptoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCellView.swift; sourceTree = "<group>"; };
+		31848AF02D6A114A000D4288 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		31848AA42D68DE40000D4288 /* Cypto Life */ = {
 			isa = PBXGroup;
 			children = (
+				31848AEF2D6A1130000D4288 /* Extensions */,
+				31848AEC2D6A0CFB000D4288 /* Views */,
 				31848AE72D69E65C000D4288 /* Coin Detail Screen */,
 				31848ADE2D69E0F2000D4288 /* Favorites Screen */,
 				31848ADD2D69E0EB000D4288 /* Home Screen */,
@@ -192,6 +198,22 @@
 				31848AEA2D69E7A0000D4288 /* CoinDetailsViewModel.swift */,
 			);
 			path = "Coin Detail Screen";
+			sourceTree = "<group>";
+		};
+		31848AEC2D6A0CFB000D4288 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				31848AED2D6A0D2F000D4288 /* CryptoCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		31848AEF2D6A1130000D4288 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31848AF02D6A114A000D4288 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,8 +357,10 @@
 				31848AA62D68DE40000D4288 /* AppDelegate.swift in Sources */,
 				31848AA82D68DE40000D4288 /* SceneDelegate.swift in Sources */,
 				31848AE02D69E122000D4288 /* HomeScreenViewController.swift in Sources */,
+				31848AEE2D6A0D2F000D4288 /* CryptoCellView.swift in Sources */,
 				31848AE62D69E197000D4288 /* FavoriteScreenViewModel.swift in Sources */,
 				31848AE42D69E180000D4288 /* FavoriteScreenViewController.swift in Sources */,
+				31848AF12D6A114A000D4288 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
