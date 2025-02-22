@@ -8,17 +8,17 @@
 import Foundation
 
 protocol InteractorProtocol {
-    func getCoins(completed: @escaping (Result<CyptoResponse, Error>) -> Void)
+    func getCoins(completed: @escaping (Result<CryptoResponse, Error>) -> Void)
 }
 
-class StaffInteractor: InteractorProtocol {
+class Interactor: InteractorProtocol {
     private let service: ServiceProtocol
     
     init(service: ServiceProtocol) {
         self.service = service
     }
     
-    func getCoins(completed: @escaping (Result<CyptoResponse, Error>) -> Void) {
+    func getCoins(completed: @escaping (Result<CryptoResponse, Error>) -> Void) {
         let urlString = "https://api.coinranking.com/v2/coins"
         guard let url = URL(string: urlString) else {
             let error = NSError(domain: "InteractorError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
