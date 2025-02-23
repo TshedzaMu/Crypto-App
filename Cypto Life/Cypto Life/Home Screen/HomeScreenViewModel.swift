@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeScreenViewModel {
     var allCoins: [CryptoCoin] = []
-    var displayedCoins: [CryptoCoin] = [] 
+    var displayedCoins: [CryptoCoin] = []
     var selectedCoin: CryptoCoin?
     private let pageSize = 20
     private var currentPage = 0
@@ -18,6 +19,16 @@ class HomeScreenViewModel {
     
     var onCoinsFetched: (() -> Void)?
     var onFetchFailed: ((String) -> Void)?
+    
+    var favoriteCoins: Set<String> {
+        get {
+            return Set(UserDefaults.standard.array(forKey: "FavoriteCoins") as? [String] ?? [])
+        }
+        set {
+            UserDefaults.standard.set(Array(newValue), forKey: "FavoriteCoins")
+            UserDefaults.standard.synchronize()
+        }
+    }
 
     var coinListTotal: Int {
         return displayedCoins.count
@@ -28,7 +39,8 @@ class HomeScreenViewModel {
             switch result {
             case .success(let response):
                 self?.allCoins = response.data.coins
-                self?.loadMoreCoins()
+                self?.displayedCoins = self?.allCoins ?? []
+                self?.onCoinsFetched?()
             case .failure(let error):
                 self?.onFetchFailed?(error.localizedDescription)
             }
@@ -44,5 +56,25 @@ class HomeScreenViewModel {
             currentPage += 1
             onCoinsFetched?()
         }
+    }
+    
+    func toggleFavorite(for coin: CryptoCoin) {
+        if favoriteCoins.contains(coin.uuid) {
+            favoriteCoins.remove(coin.uuid)
+        } else {
+            favoriteCoins.insert(coin.uuid)
+        }
+        UserDefaults.standard.set(Array(favoriteCoins), forKey: "FavoriteCoins")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func sortByPrice() {
+        displayedCoins.sort { (Double($0.price) ?? 0) > (Double($1.price) ?? 0) }
+        onCoinsFetched?()
+    }
+    
+    func sortByBestPerformance() {
+        displayedCoins.sort { (Double($0.change) ?? 0) > (Double($1.change) ?? 0) }
+        onCoinsFetched?()
     }
 }

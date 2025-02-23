@@ -56,7 +56,7 @@
             <objects>
                 <viewController id="ii2-jU-MpI" customClass="CoinDetailsViewController" customModule="Cypto_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfZ-m3-dLk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0Cd-68-s3o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -168,7 +168,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="86B-aI-0PX"/>
+        <segue reference="vQy-kQ-Cir"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

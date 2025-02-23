@@ -10,18 +10,15 @@ import UIKit
 import SwiftUI
 
 class HomeScreenViewController: UIViewController {
-
     @IBOutlet weak var cryptoListTableView: UITableView!
     
     lazy var viewModel = HomeScreenViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cryptoListTableView.delegate = self
         cryptoListTableView.dataSource = self
-        
-        cryptoListTableView.separatorInset = .zero
-        cryptoListTableView.layoutMargins = .zero
+        setupNavigationBar()
         
         viewModel.onCoinsFetched = { [weak self] in
             DispatchQueue.main.async {
@@ -30,21 +27,26 @@ class HomeScreenViewController: UIViewController {
         }
         
         viewModel.onFetchFailed = { [weak self] errorMessage in
-        
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
         }
         
         viewModel.getCoinList()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "coinInformationSegue" {
-            if let additionalInfoVC = segue.destination as? CoinDetailsViewController {
-                additionalInfoVC.viewModel.selectedCoin = viewModel.selectedCoin
-            }
-        }
+    private func setupNavigationBar() {
+        let sortMenu = UIMenu(title: "Sort By", children: [
+            UIAction(title: "All", handler: { _ in self.viewModel.getCoinList() }),
+            UIAction(title: "Highest Price", handler: { _ in self.viewModel.sortByPrice() }),
+            UIAction(title: "Best Performance", handler: { _ in self.viewModel.sortByBestPerformance() })
+        ])
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", menu: sortMenu)
     }
 }
-
 
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,5 +74,20 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
         let cryptoInfo = viewModel.displayedCoins[indexPath.row]
         viewModel.selectedCoin = cryptoInfo
         performSegue(withIdentifier: "coinInformationSegue", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let coin = viewModel.displayedCoins[indexPath.row]
+        let isFavorite = viewModel.favoriteCoins.contains(coin.uuid)
+        
+        let favoriteAction = UIContextualAction(style: .normal, title: isFavorite ? "Remove Favorite" : "Add Favorite") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            self.viewModel.toggleFavorite(for: coin)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        favoriteAction.backgroundColor = isFavorite ? .lightGray : .lightGray
+        
+        return UISwipeActionsConfiguration(actions: [favoriteAction])
     }
 }
