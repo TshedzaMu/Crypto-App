@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CoinDetailsViewController: UIViewController {
     
@@ -18,6 +19,12 @@ class CoinDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(viewModel.selectedCoin)
+        let coinDetailsView = CoinDetailsView(viewModel: viewModel)
+        let hostingController = UIHostingController(rootView: coinDetailsView)
+            
+        addChild(hostingController)
+        hostingController.view.frame = view.bounds
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
     }
 }

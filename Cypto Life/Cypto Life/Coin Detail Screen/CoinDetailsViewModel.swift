@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct CoinDetailsViewModel {
-    
-    var selectedCoin: CryptoCoin?
-    
+class CoinDetailsViewModel: ObservableObject {
+    @Published var selectedCoin: CryptoCoin?
+
+    init(coin: CryptoCoin? = nil) {
+        self.selectedCoin = coin
+    }
 }

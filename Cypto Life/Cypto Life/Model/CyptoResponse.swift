@@ -49,4 +49,16 @@ struct CryptoCoin: Codable {
         case volume24h = "24hVolume"
         case btcPrice, contractAddresses
     }
+    
+    var formattedPrice: String {
+         "$\(price.prefix(8))"
+     }
+     
+     var formattedMarketCap: String {
+         "$\(marketCap.prefix(10))"
+     }
+     
+     var formattedChange: String {
+         "\(change)%"
+     }
 }
