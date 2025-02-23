@@ -37,6 +37,14 @@ class HomeScreenViewController: UIViewController {
         viewModel.getCoinList()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "coinInformationSegue" {
+            if let coinInformationVC = segue.destination as? CoinDetailsViewController {
+                coinInformationVC.viewModel.selectedCoin = viewModel.selectedCoin
+            }
+        }
+    }
+    
     private func setupNavigationBar() {
         let sortMenu = UIMenu(title: "Sort By", children: [
             UIAction(title: "All", handler: { _ in self.viewModel.getCoinList() }),
