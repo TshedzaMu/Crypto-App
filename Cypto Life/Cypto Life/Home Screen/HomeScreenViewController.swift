@@ -86,7 +86,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let coin = viewModel.displayedCoins[indexPath.row]
-        let isFavorite = viewModel.favoriteCoins.contains(coin.uuid)
+        let isFavorite = UserDefaults.isFavorite(coin)
         
         let favoriteAction = UIContextualAction(style: .normal, title: isFavorite ? "Remove Favorite" : "Add Favorite") { [weak self] (_, _, completionHandler) in
             guard let self = self else { return }

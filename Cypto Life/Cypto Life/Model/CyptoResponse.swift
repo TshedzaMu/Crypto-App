@@ -25,7 +25,7 @@ struct CryptoStats: Codable {
     let total24hVolume: String
 }
 
-struct CryptoCoin: Codable {
+struct CryptoCoin: Codable, Equatable {
     let uuid: String
     let symbol: String
     let name: String

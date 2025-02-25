@@ -19,17 +19,6 @@ class HomeScreenViewModel {
     
     var onCoinsFetched: (() -> Void)?
     var onFetchFailed: ((String) -> Void)?
-    
-    var favoriteCoins: Set<String> {
-        get {
-            return Set(UserDefaults.standard.array(forKey: "FavoriteCoins") as? [String] ?? [])
-        }
-        set {
-            UserDefaults.standard.set(Array(newValue), forKey: "FavoriteCoins")
-            UserDefaults.standard.synchronize()
-        }
-    }
-
     var coinListTotal: Int {
         return displayedCoins.count
     }
@@ -57,16 +46,19 @@ class HomeScreenViewModel {
             onCoinsFetched?()
         }
     }
-    
+
     func toggleFavorite(for coin: CryptoCoin) {
-        if favoriteCoins.contains(coin.uuid) {
-            favoriteCoins.remove(coin.uuid)
+        if UserDefaults.isFavorite(coin) {
+            removeFromFavorites(coin: coin)
         } else {
-            favoriteCoins.insert(coin.uuid)
+            UserDefaults.addToFavorites(coin)
         }
-        UserDefaults.standard.set(Array(favoriteCoins), forKey: "FavoriteCoins")
-        UserDefaults.standard.synchronize()
     }
+    
+    func removeFromFavorites(coin: CryptoCoin) {
+        UserDefaults.savedfavorites.removeAll(where: { $0.uuid == coin.uuid })
+    }
+    
     
     func sortByPrice() {
         displayedCoins.sort { (Double($0.price) ?? 0) > (Double($1.price) ?? 0) }
