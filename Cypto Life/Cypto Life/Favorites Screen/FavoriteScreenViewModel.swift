@@ -11,6 +11,7 @@ import SwiftUI
 
 class FavoriteScreenViewModel {
     var favoritesList: [CryptoCoin] = UserDefaults.savedfavorites 
+    var selectedCoin: CryptoCoin?
     
     var favoriteListCount: Int {
         return favoritesList.count

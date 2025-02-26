@@ -60,6 +60,14 @@ class FavoriteScreenViewController: UIViewController {
         emptyStateView.isHidden = viewModel.favoriteListCount > 0
         favoriteCryptoListTableView.isHidden = viewModel.favoriteListCount == 0
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favoriteCoinInformationSegue" {
+            if let coinInformationVC = segue.destination as? CoinDetailsViewController {
+                coinInformationVC.viewModel.selectedCoin = viewModel.selectedCoin
+            }
+        }
+    }
 }
 
 extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,10 +88,15 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cryptoInfo = viewModel.favoritesList[indexPath.row]
+        viewModel.selectedCoin = cryptoInfo
+        performSegue(withIdentifier: "favoriteCoinInformationSegue", sender: nil)
+    }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let coin = viewModel.favoritesList[indexPath.row]
-        let isFavorite = UserDefaults.isFavorite(coin)
         
         let favoriteAction = UIContextualAction(style: .normal, title: "Remove Favorite") { [weak self] (_, _, completionHandler) in
             guard let self = self else { return }
