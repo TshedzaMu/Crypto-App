@@ -6,7 +6,17 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 
-struct FavoriteScreenViewModel {
+class FavoriteScreenViewModel {
+    var favoritesList: [CryptoCoin] = UserDefaults.savedfavorites ?? []
     
+    var favoriteListCount: Int {
+        return favoritesList.count
+    }
+    
+    func resetFavorites() {
+        favoritesList = UserDefaults.savedfavorites ?? []
+    }
 }
