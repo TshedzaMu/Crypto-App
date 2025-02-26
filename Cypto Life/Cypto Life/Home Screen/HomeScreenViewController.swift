@@ -16,17 +16,20 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //startActivityIndicator()
         cryptoListTableView.delegate = self
         cryptoListTableView.dataSource = self
         setupNavigationBar()
         
         viewModel.onCoinsFetched = { [weak self] in
+            self?.stopActivityIndicator()
             DispatchQueue.main.async {
                 self?.cryptoListTableView.reloadData()
             }
         }
         
         viewModel.onFetchFailed = { [weak self] errorMessage in
+            self?.stopActivityIndicator()
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
