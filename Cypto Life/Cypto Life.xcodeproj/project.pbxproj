@@ -31,6 +31,7 @@
 		31848AF92D6B6EBF000D4288 /* PerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AF82D6B6EBF000D4288 /* PerformanceChartView.swift */; };
 		31848AFB2D6B6EE0000D4288 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AFA2D6B6EE0000D4288 /* FilterView.swift */; };
 		31848AFD2D6B6EF8000D4288 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AFC2D6B6EF8000D4288 /* StatsView.swift */; };
+		3185E8952D6F68F100A711C1 /* SVGLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3185E8942D6F68F100A711C1 /* SVGLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		31848AF82D6B6EBF000D4288 /* PerformanceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceChartView.swift; sourceTree = "<group>"; };
 		31848AFA2D6B6EE0000D4288 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		31848AFC2D6B6EF8000D4288 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		3185E8942D6F68F100A711C1 /* SVGLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				31848AF02D6A114A000D4288 /* Extensions.swift */,
+				3185E8942D6F68F100A711C1 /* SVGLoader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				31848AE92D69E6F9000D4288 /* CoinDetailsViewController.swift in Sources */,
 				31848AD92D69DC9E000D4288 /* Interactor.swift in Sources */,
 				31848AF52D6B6DEF000D4288 /* CoinDetailsView.swift in Sources */,
+				3185E8952D6F68F100A711C1 /* SVGLoader.swift in Sources */,
 				31848AA62D68DE40000D4288 /* AppDelegate.swift in Sources */,
 				31848AA82D68DE40000D4288 /* SceneDelegate.swift in Sources */,
 				31848AE02D69E122000D4288 /* HomeScreenViewController.swift in Sources */,
