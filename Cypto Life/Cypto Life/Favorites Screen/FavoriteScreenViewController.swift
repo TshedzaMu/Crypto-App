@@ -46,4 +46,21 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let coin = viewModel.favoritesList[indexPath.row]
+        let isFavorite = UserDefaults.isFavorite(coin)
+        
+        let favoriteAction = UIContextualAction(style: .normal, title: "Remove Favorite") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            viewModel.removeFromFavorites(coin: coin)
+            viewModel.resetFavorites()
+            favoriteCryptoListTableView.reloadData()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        favoriteAction.backgroundColor = .darkGray
+        
+        return UISwipeActionsConfiguration(actions: [favoriteAction])
+    }
 }

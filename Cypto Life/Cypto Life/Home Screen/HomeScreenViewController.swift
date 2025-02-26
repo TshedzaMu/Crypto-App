@@ -94,7 +94,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.reloadRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
-        favoriteAction.backgroundColor = isFavorite ? .lightGray : .lightGray
+        favoriteAction.backgroundColor = isFavorite ? .lightGray : .darkGray
         
         return UISwipeActionsConfiguration(actions: [favoriteAction])
     }
