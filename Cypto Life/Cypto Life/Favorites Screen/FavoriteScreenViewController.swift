@@ -21,7 +21,6 @@ class FavoriteScreenViewController: UIViewController {
         
         favoriteCryptoListTableView.delegate = self
         favoriteCryptoListTableView.dataSource = self
-        favoriteCryptoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CryptoCell")
         
         setupEmptyStateView()
     }
