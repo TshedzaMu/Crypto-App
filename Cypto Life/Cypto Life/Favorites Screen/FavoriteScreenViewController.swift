@@ -12,25 +12,59 @@ import SwiftUI
 class FavoriteScreenViewController: UIViewController {
     
     @IBOutlet private var favoriteCryptoListTableView: UITableView!
+    private var emptyStateView: UIView!
+    
     var viewModel = FavoriteScreenViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         favoriteCryptoListTableView.delegate = self
         favoriteCryptoListTableView.dataSource = self
         favoriteCryptoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CryptoCell")
+        
+        setupEmptyStateView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.resetFavorites()
         favoriteCryptoListTableView.reloadData()
-        print(viewModel.favoriteListCount)
+        toggleEmptyStateView()
+    }
+    
+    private func setupEmptyStateView() {
+        emptyStateView = UIView(frame: view.bounds)
+        emptyStateView.backgroundColor = .systemBackground
+        
+        let messageLabel = UILabel()
+        messageLabel.text = "No favorite coins yet.\nStart adding some!"
+        messageLabel.textAlignment = .center
+        messageLabel.textColor = .gray
+        messageLabel.numberOfLines = 0
+        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        
+        emptyStateView.addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            messageLabel.centerXAnchor.constraint(equalTo: emptyStateView.centerXAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: emptyStateView.centerYAnchor)
+        ])
+        
+        view.addSubview(emptyStateView)
+    }
+    
+    private func toggleEmptyStateView() {
+        viewModel.resetFavorites()
+        emptyStateView.isHidden = viewModel.favoriteListCount > 0
+        favoriteCryptoListTableView.isHidden = viewModel.favoriteListCount == 0
     }
 }
 
 extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        toggleEmptyStateView()
         return viewModel.favoriteListCount
     }
     
@@ -46,7 +80,7 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let coin = viewModel.favoritesList[indexPath.row]
         let isFavorite = UserDefaults.isFavorite(coin)
