@@ -31,7 +31,8 @@ class HomeScreenViewModel {
             switch result {
             case .success(let response):
                 self?.allCoins = response.data.coins
-                self?.loadNextBatch() // Load the first batch of coins
+                SharedData.shared.allCoins = response.data.coins
+                self?.loadNextBatch()
             case .failure(let error):
                 self?.onFetchFailed?(error.localizedDescription)
             }
