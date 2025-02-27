@@ -16,7 +16,7 @@ Swipe left again on any favorited coin to remove it from favorites.
 
 Favorite Coin Screen:
 Switch to the "Favorites" tab to view all your favorited coins.
-You can repeat the same process (swipe left to add or remove).
+You can repeat the same process (swipe left to remove).
 Assumptions and Decisions Made
 
 
