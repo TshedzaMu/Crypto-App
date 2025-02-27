@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SwiftUI
 
 class FavoriteScreenViewModel {
     var favoritesList: [String] = UserDefaults.savedFavoriteCoin
