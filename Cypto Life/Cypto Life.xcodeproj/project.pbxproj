@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		311BA85E2D70C23E004AC1E8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311BA85D2D70C23E004AC1E8 /* UIViewController+Extensions.swift */; };
 		311BA8602D70C28F004AC1E8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311BA85F2D70C28F004AC1E8 /* Array+Extensions.swift */; };
+		311BA8692D70CB03004AC1E8 /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311BA8642D70C988004AC1E8 /* HomeScreenViewModelTests.swift */; };
 		31848AA62D68DE40000D4288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AA52D68DE40000D4288 /* AppDelegate.swift */; };
 		31848AA82D68DE40000D4288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31848AA72D68DE40000D4288 /* SceneDelegate.swift */; };
 		31848AAD2D68DE40000D4288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31848AAB2D68DE40000D4288 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		311BA85D2D70C23E004AC1E8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		311BA85F2D70C28F004AC1E8 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		311BA8642D70C988004AC1E8 /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		31848AA22D68DE40000D4288 /* Cypto Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cypto Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31848AA52D68DE40000D4288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31848AA72D68DE40000D4288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				31848ABC2D68DE42000D4288 /* Cypto_LifeTests.swift */,
+				311BA8642D70C988004AC1E8 /* HomeScreenViewModelTests.swift */,
 			);
 			path = "Cypto LifeTests";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311BA8692D70CB03004AC1E8 /* HomeScreenViewModelTests.swift in Sources */,
 				31848ABD2D68DE42000D4288 /* Cypto_LifeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
