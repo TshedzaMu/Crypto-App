@@ -21,7 +21,6 @@ class FavoriteScreenViewController: UIViewController {
         
         favoriteCryptoListTableView.delegate = self
         favoriteCryptoListTableView.dataSource = self
-        
         setupEmptyStateView()
     }
     
@@ -78,7 +77,10 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FAVORITE_CRYPTO_CELL", for: indexPath)
         
-        guard let coin = viewModel.favoritesList[safe: indexPath.row] else { return cell }
+        guard let coinID = viewModel.favoritesList[safe: indexPath.row],
+              let coin = viewModel.allCoins.first(where: { $0.uuid == coinID }) else {
+            return cell
+        }
         
         cell.contentConfiguration = UIHostingConfiguration {
             CryptoCellView(coin: coin)
@@ -87,26 +89,36 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cryptoInfo = viewModel.favoritesList[indexPath.row]
-        viewModel.selectedCoin = cryptoInfo
+        guard let coinID = viewModel.favoritesList[safe: indexPath.row],
+              let selectedCoin = viewModel.allCoins.first(where: { $0.uuid == coinID }) else {
+            return
+        }
+
+        viewModel.selectedCoin = selectedCoin
         performSegue(withIdentifier: "favoriteCoinInformationSegue", sender: nil)
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let coin = viewModel.favoritesList[indexPath.row]
-        
+        guard let coinID = viewModel.favoritesList[safe: indexPath.row],
+              let coin = viewModel.allCoins.first(where: { $0.uuid == coinID }) else {
+            return nil
+        }
+
         let favoriteAction = UIContextualAction(style: .normal, title: "Remove Favorite") { [weak self] (_, _, completionHandler) in
             guard let self = self else { return }
+
             viewModel.removeFromFavorites(coin: coin)
             viewModel.resetFavorites()
             favoriteCryptoListTableView.reloadData()
             tableView.reloadRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
+        
         favoriteAction.backgroundColor = .darkGray
         
         return UISwipeActionsConfiguration(actions: [favoriteAction])
     }
+
 }

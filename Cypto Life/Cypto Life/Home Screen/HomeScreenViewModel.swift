@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+class SharedData {
+    static let shared = SharedData()
+    var allCoins: [CryptoCoin]? = []
+}
+
 class HomeScreenViewModel {
     var allCoins: [CryptoCoin] = []
     var displayedCoins: [CryptoCoin] = []
@@ -29,6 +34,7 @@ class HomeScreenViewModel {
             case .success(let response):
                 self?.allCoins = response.data.coins
                 self?.displayedCoins = self?.allCoins ?? []
+                SharedData.shared.allCoins = self?.allCoins ?? []
                 self?.onCoinsFetched?()
             case .failure(let error):
                 self?.onFetchFailed?(error.localizedDescription)
@@ -47,16 +53,16 @@ class HomeScreenViewModel {
         }
     }
 
-    func toggleFavorite(for coin: CryptoCoin) {
-        if UserDefaults.isFavorite(coin) {
-            removeFromFavorites(coin: coin)
+    func toggleFavorite(for coinID: String) {
+        if UserDefaults.isFavorite(coinID) {
+            removeFromFavorites(coinID: coinID)
         } else {
-            UserDefaults.addToFavorites(coin)
+            UserDefaults.addToFavorites(coinID)
         }
     }
     
-    func removeFromFavorites(coin: CryptoCoin) {
-        UserDefaults.savedfavorites.removeAll(where: { $0.uuid == coin.uuid })
+    func removeFromFavorites(coinID: String) {
+        UserDefaults.savedFavoriteCoin.removeAll(where: { $0 == coinID })
     }
     
     

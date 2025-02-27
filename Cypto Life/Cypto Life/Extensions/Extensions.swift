@@ -21,12 +21,11 @@ extension UserDefaults {
         static let favorites = "favorites"
     }
     
-    static var savedfavorites: [CryptoCoin] {
+    static var savedFavoriteCoin: [String] {
         get {
-            guard let data = UserDefaults.standard.data(forKey: Keys.favorites) else {return []}
+            guard let data = UserDefaults.standard.data(forKey: Keys.favorites) else { return [] }
             do {
-                let decoder = JSONDecoder()
-                let coins = try decoder.decode([CryptoCoin].self, from: data)
+                let coins = try JSONDecoder().decode([String].self, from: data)
                 return coins
             } catch {
                 return []
@@ -34,25 +33,23 @@ extension UserDefaults {
         }
         set {
             do {
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newValue)
+                let data = try JSONEncoder().encode(newValue)
                 UserDefaults.standard.set(data, forKey: Keys.favorites)
             } catch {
                 print("Unable to Encode coin data (\(error))")
-            }        }
+            }
+        }
     }
     
-    static func addToFavorites(_ coin: CryptoCoin) {
-        var currentFavorites = UserDefaults.savedfavorites
-        currentFavorites.append(coin)
-        print("saved")
-        UserDefaults.savedfavorites = currentFavorites
+    static func addToFavorites(_ coinID: String) {
+        var currentFavorites = UserDefaults.savedFavoriteCoin
+        currentFavorites.append(coinID)
+        UserDefaults.savedFavoriteCoin = currentFavorites
     }
     
-    static func isFavorite(_ coin: CryptoCoin?) -> Bool {
-        let favorites = UserDefaults.savedfavorites
-        guard let coin = coin else  { return false }
-        return favorites.contains(coin)
+    static func isFavorite(_ coinID: String) -> Bool {
+        let favorites = UserDefaults.savedFavoriteCoin
+        return favorites.contains(coinID)
     }
 }
 

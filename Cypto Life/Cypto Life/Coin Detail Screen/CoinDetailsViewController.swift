@@ -40,18 +40,19 @@ class CoinDetailsViewController: UIViewController {
       }
       
       private func updateFavoriteButton() {
-          let isFavorite = UserDefaults.isFavorite(viewModel.selectedCoin)
+          guard let uuid = viewModel.selectedCoin?.uuid else { return  }
+          let isFavorite = UserDefaults.isFavorite(uuid)
           let imageName = isFavorite ? "star.fill" : "star"
           favoriteButton?.image = UIImage(systemName: imageName)
       }
       
     @objc private func toggleFavorite() {
-        guard let coin = viewModel.selectedCoin else { return }
+        guard let coin = viewModel.selectedCoin?.uuid else { return }
         
         if UserDefaults.isFavorite(coin) {
-            viewModel.removeFromFavorites(coin: coin)
+            viewModel.removeFromFavorites(coinID: coin)
         } else {
-            viewModel.addToFavorites(coin: coin)
+            viewModel.addToFavorites(coinID: coin)
         }
         
         updateFavoriteButton()

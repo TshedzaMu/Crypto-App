@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //startActivityIndicator()
+        startActivityIndicator()
         cryptoListTableView.delegate = self
         cryptoListTableView.dataSource = self
         setupNavigationBar()
@@ -88,12 +88,12 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let coin = viewModel.displayedCoins[indexPath.row]
-        let isFavorite = UserDefaults.isFavorite(coin)
+        let coinID = viewModel.displayedCoins[indexPath.row].uuid
+        let isFavorite = UserDefaults.isFavorite(coinID)
         
         let favoriteAction = UIContextualAction(style: .normal, title: isFavorite ? "Remove Favorite" : "Add Favorite") { [weak self] (_, _, completionHandler) in
             guard let self = self else { return }
-            self.viewModel.toggleFavorite(for: coin)
+            self.viewModel.toggleFavorite(for: coinID)
             tableView.reloadRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }

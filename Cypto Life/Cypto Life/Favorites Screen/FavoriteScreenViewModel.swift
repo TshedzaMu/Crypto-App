@@ -10,18 +10,23 @@ import UIKit
 import SwiftUI
 
 class FavoriteScreenViewModel {
-    var favoritesList: [CryptoCoin] = UserDefaults.savedfavorites 
+    var favoritesList: [String] = UserDefaults.savedFavoriteCoin
     var selectedCoin: CryptoCoin?
     
     var favoriteListCount: Int {
         return favoritesList.count
     }
     
+    var allCoins: [CryptoCoin] {
+        guard let coins = SharedData.shared.allCoins else { return [] }
+        return coins
+    }
+    
     func resetFavorites() {
-        favoritesList = UserDefaults.savedfavorites 
+        favoritesList = UserDefaults.savedFavoriteCoin 
     }
     
     func removeFromFavorites(coin: CryptoCoin) {
-        UserDefaults.savedfavorites.removeAll(where: { $0.uuid == coin.uuid })
+        UserDefaults.savedFavoriteCoin.removeAll(where: { $0 == coin.uuid })
     }
 }

@@ -14,11 +14,11 @@ class CoinDetailsViewModel: ObservableObject {
         self.selectedCoin = coin
     }
     
-    func removeFromFavorites(coin: CryptoCoin) {
-        UserDefaults.savedfavorites.removeAll(where: { $0.uuid == coin.uuid })
+    func removeFromFavorites(coinID: String) {
+        UserDefaults.savedFavoriteCoin.removeAll(where: { $0 == coinID })
     }
     
-    func addToFavorites(coin: CryptoCoin) {
-        UserDefaults.addToFavorites(coin)
+    func addToFavorites(coinID: String) {
+        UserDefaults.addToFavorites(coinID)
     }
 }
