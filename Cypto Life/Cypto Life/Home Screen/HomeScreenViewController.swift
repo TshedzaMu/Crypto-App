@@ -60,6 +60,17 @@ class HomeScreenViewController: UIViewController {
 }
 
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY >= contentHeight - height {
+            viewModel.loadNextBatchIfNeeded(currentIndex: viewModel.displayedCoins.count)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.displayedCoins.count
     }
