@@ -26,7 +26,7 @@ class FavoriteScreenViewModel {
         favoritesList = UserDefaults.savedFavoriteCoin 
     }
     
-    func removeFromFavorites(coin: CryptoCoin) {
-        UserDefaults.savedFavoriteCoin.removeAll(where: { $0 == coin.uuid })
+    func removeFromFavorites(coinID: String)  {
+        UserDefaults.savedFavoriteCoin.removeAll(where: { $0 == coinID })
     }
 }

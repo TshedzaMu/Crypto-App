@@ -73,10 +73,6 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
             CryptoCellView(coin: coin)
                 .padding(.vertical, 5)
         }
-
-        if indexPath.row == viewModel.displayedCoins.count - 1 {
-            viewModel.loadMoreCoins()
-        }
         
         return cell
     }

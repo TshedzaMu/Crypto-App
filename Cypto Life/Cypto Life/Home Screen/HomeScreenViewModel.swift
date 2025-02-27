@@ -17,8 +17,6 @@ class HomeScreenViewModel {
     var allCoins: [CryptoCoin] = []
     var displayedCoins: [CryptoCoin] = []
     var selectedCoin: CryptoCoin?
-    private let pageSize = 20
-    private var currentPage = 0
 
     lazy var interactor: InteractorProtocol = Interactor(service: Service())
     
@@ -39,17 +37,6 @@ class HomeScreenViewModel {
             case .failure(let error):
                 self?.onFetchFailed?(error.localizedDescription)
             }
-        }
-    }
-
-    func loadMoreCoins() {
-        let startIndex = currentPage * pageSize
-        let endIndex = min(startIndex + pageSize, allCoins.count)
-
-        if startIndex < allCoins.count {
-            displayedCoins.append(contentsOf: allCoins[startIndex..<endIndex])
-            currentPage += 1
-            onCoinsFetched?()
         }
     }
 

@@ -102,14 +102,14 @@ extension FavoriteScreenViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let coinID = viewModel.favoritesList[safe: indexPath.row],
-              let coin = viewModel.allCoins.first(where: { $0.uuid == coinID }) else {
+              let _ = viewModel.allCoins.first(where: { $0.uuid == coinID }) else {
             return nil
         }
 
         let favoriteAction = UIContextualAction(style: .normal, title: "Remove Favorite") { [weak self] (_, _, completionHandler) in
             guard let self = self else { return }
 
-            viewModel.removeFromFavorites(coin: coin)
+            viewModel.removeFromFavorites(coinID: coinID)
             viewModel.resetFavorites()
             favoriteCryptoListTableView.reloadData()
             tableView.reloadRows(at: [indexPath], with: .automatic)
