@@ -8,14 +8,6 @@
 import Foundation
 import UIKit
 
-let ACTIVITY_INDICATOR_TAG = 001
-
-extension Array {
-    subscript(safe index: Int) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
-
 extension UserDefaults {
     private enum Keys {
         static let favorites = "favorites"
@@ -50,27 +42,5 @@ extension UserDefaults {
     static func isFavorite(_ coinID: String) -> Bool {
         let favorites = UserDefaults.savedFavoriteCoin
         return favorites.contains(coinID)
-    }
-}
-
-extension UIViewController {
-       
-  func startActivityIndicator() {
-      let loc =  self.view.center
-      let activityIndicator = UIActivityIndicatorView(style: .large)
-      activityIndicator.tag = ACTIVITY_INDICATOR_TAG
-      activityIndicator.center = loc
-      activityIndicator.hidesWhenStopped = true
-            
-      activityIndicator.startAnimating()
-      self.view.addSubview(activityIndicator)
-   }
-        
-   func stopActivityIndicator() {
-      if let activityIndicator = self.view.subviews.filter(
-      { $0.tag == ACTIVITY_INDICATOR_TAG}).first as? UIActivityIndicatorView {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-      }
     }
 }
