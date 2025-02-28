@@ -16,7 +16,6 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startActivityIndicator()
         cryptoListTableView.delegate = self
         cryptoListTableView.dataSource = self
         setupNavigationBar()
@@ -24,6 +23,8 @@ class HomeScreenViewController: UIViewController {
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        startActivityIndicator()
         
         viewModel.onCoinsFetched = { [weak self] in
             self?.stopActivityIndicator()
