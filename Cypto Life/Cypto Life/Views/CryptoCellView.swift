@@ -9,10 +9,13 @@ import SwiftUI
 import UIKit
 import WebKit
 
+import SwiftUI
+
 struct CryptoCellView: View {
     let coin: CryptoCoin
     @State private var svgImage: UIImage?
-    
+    @State private var isFavorite: Bool = false
+
     var body: some View {
         HStack {
             if isSVG(url: coin.iconUrl) {
@@ -45,13 +48,13 @@ struct CryptoCellView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                
+
                 Text("$\(coin.price)")
                     .font(.body)
                     .foregroundColor(.black)
             }
             Spacer()
-            
+
             Text("\(coin.change)%")
                 .font(.body)
                 .fontWeight(.semibold)
@@ -61,16 +64,30 @@ struct CryptoCellView: View {
                 .background(RoundedRectangle(cornerRadius: 20).fill(Color.gray.opacity(0.2)))
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 20).fill(Color.white).shadow(radius: 4))
+        .background(
+            ZStack(alignment: .topTrailing) {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.white)
+                    .shadow(radius: 4)
+
+                Image(systemName: isFavorite ? "star.fill" : "star")
+                    .foregroundColor(.blue)
+                    .font(.system(size: 14))
+                    .offset(x: -8, y: 8)
+            }
+        )
+        .onAppear {
+            isFavorite = UserDefaults.isFavorite(coin.uuid)
+        }
     }
-    
+
     private func isSVG(url: String) -> Bool {
         return url.lowercased().hasSuffix(".svg")
     }
-    
+
     private func loadSVGImage(from urlString: String) {
         guard let url = URL(string: urlString) else { return }
-        
+
         URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
             SVGLoader.load(data: data, url: urlString) { image in
