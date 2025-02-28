@@ -65,16 +65,14 @@ struct CryptoCellView: View {
         }
         .padding()
         .background(
-            ZStack(alignment: .topTrailing) {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
-                    .shadow(radius: 4)
-
-                Image(systemName: isFavorite ? "star.fill" : "star")
-                    .foregroundColor(.blue)
-                    .font(.system(size: 14))
-                    .offset(x: -8, y: 8)
-            }
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.white)
+                .shadow(radius: 4)
+                .overlay(
+                    isFavorite ? RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.yellow.opacity(0.5), lineWidth: 2)
+                        : nil
+                )
         )
         .onAppear {
             isFavorite = UserDefaults.isFavorite(coin.uuid)
