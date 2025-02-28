@@ -62,7 +62,7 @@
 		311BA8642D70C988004AC1E8 /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		311BA86A2D70CD90004AC1E8 /* FavoriteScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewModelTests.swift; sourceTree = "<group>"; };
 		311BA86C2D70D290004AC1E8 /* CoinDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModelTests.swift; sourceTree = "<group>"; };
-		31848AA22D68DE40000D4288 /* Cypto Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cypto Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31848AA22D68DE40000D4288 /* Crypto Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31848AA52D68DE40000D4288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31848AA72D68DE40000D4288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		31848AAC2D68DE40000D4288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		31848AA32D68DE40000D4288 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				31848AA22D68DE40000D4288 /* Cypto Life.app */,
+				31848AA22D68DE40000D4288 /* Crypto Life.app */,
 				31848AB82D68DE42000D4288 /* Cypto LifeTests.xctest */,
 				31848AC22D68DE42000D4288 /* Cypto LifeUITests.xctest */,
 			);
@@ -271,7 +271,7 @@
 			);
 			name = "Cypto Life";
 			productName = "Cypto Life";
-			productReference = 31848AA22D68DE40000D4288 /* Cypto Life.app */;
+			productReference = 31848AA22D68DE40000D4288 /* Crypto Life.app */;
 			productType = "com.apple.product-type.application";
 		};
 		31848AB72D68DE42000D4288 /* Cypto LifeTests */ = {
@@ -603,7 +603,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tshedza.Staff-App.Cypto-Life";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crypto Life";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,7 +630,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tshedza.Staff-App.Cypto-Life";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crypto Life";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
